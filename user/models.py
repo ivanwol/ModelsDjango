@@ -31,3 +31,30 @@ from django.db import models
 #     field21 = models.GenericIPAddressField()  # Хранит строку имеет особую валидацию для IP
 #     field22 = models.SlugField()  # Хранит строку состаящую только из символов нижнего регистра
 #     field23 = models.URLField()  # Хранит строку имеет особую валидацию для URL
+
+
+class Person(models.Model):  # Создание класса Person который является моделью
+    name = models.CharField(max_length=20)  # Создание поля модели типа данных стринг
+    age = models.PositiveSmallIntegerField()  # Создание поля модели типа данных инт
+
+# create
+# object1 = Person.objects.create(name='Artem', age=23)  # Создание объекта класса и занесение его в DB
+
+
+# object2 = Person(name='Nazar', age=18)  # Создание объекта класса
+# object2.save()  # Занесение объекта в DB
+
+# read
+# object3 = Person.objects.get(name='Serhii')  # Вытаскиваем объект из DB по определеному параметру
+# print(object3)
+# print(object3.age)
+
+
+# object4, created = Person.objects.get_or_create(name='Vika', age=20)  # Вытаскиваем объект при его наличии, в случаи отсутствия добавляем его
+# print(object4.name)
+# print(object4.age)
+# print(created)
+
+
+# object5 = Person.objects.all()  # Вытаскиваем все объекты из таблицы DB
+# print(object5)
