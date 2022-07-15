@@ -58,3 +58,27 @@ class Person(models.Model):  # Создание класса Person которы
 
 # object5 = Person.objects.all()  # Вытаскиваем все объекты из таблицы DB
 # print(object5)
+
+
+# object6 = Person.objects.filter(age=18, name='Ivan')  # Получает объекты по определенным критериям
+# print(object6)
+
+
+# object7 = Person.objects.exclude(age=18)  # Исключает из выборки записи которые соответствуют переданному параметру
+# print(object7)
+
+
+# object8 = Person.objects.filter(age=18).exclude(name='Nazar')  # Вытаскиваем элеенты которые имеют age = 18 и не имеют name = 'Nazar
+# print(object8)
+
+
+# object9 = Person.objects.in_bulk()  # Собирает все элементы в dict
+# for id in object9:  # Вытягивает id из dict
+#     print(object9[id].name)  # Принтуем имя елемента по данному id
+#     print(object9[id].age)  # Принтуем age елемента по данному id
+
+
+# object10 = Person.objects.in_bulk([1, 6, 11])  # Собирает элементы в dict с данными индексами
+# for id in object10:  # Вытягивает id из dict
+#     print(object10[id].name)  # Принтуем имя елемента по данному id
+#     print(object10[id].age)  # Принтуем age елемента по данному id
