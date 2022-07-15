@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import F
 #
 #
 # class User(models.Model):
@@ -82,3 +83,19 @@ class Person(models.Model):  # Создание класса Person которы
 # for id in object10:  # Вытягивает id из dict
 #     print(object10[id].name)  # Принтуем имя елемента по данному id
 #     print(object10[id].age)  # Принтуем age елемента по данному id
+
+
+# object11 = Person.objects.get(id=1)  # Вытаскиваем объект с id 1
+# object11.age = 15  # Обращаемся к полю age и присваеваем ему новое значение
+# object11.save()  # Сохраняем изменение в БД
+
+
+# object12 = Person.objects.get(id=7)  # Вытаскиваем объект с id 7
+# object12.name = 'Nikita'  # Обращаемся к полю name и присваеваем ему новое значение
+# object12.save(update_fields=['name'])  # Сохраняем изменения и обнавляем ТОЛЬКО параметр name
+
+
+# Person.objects.filter(id=9).update(name='Victor')  # Фильтрует объекты по id 9 и изменяет name на Виктор
+
+
+# Person.objects.filter(id=7).update(age = F('age') + 12)  # Фильтрует по id 7 и достаем значение age и увеличеваем его на 12
