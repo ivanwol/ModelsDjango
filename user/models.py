@@ -6,6 +6,12 @@ from django.db.models import F
 #     name = models.CharField(max_length=20)
 #     firstname = models.CharField(max_length=20)
 #     age = models.IntegerField()
+
+
+class User(models.Model):
+    name = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20)
+    age = models.PositiveSmallIntegerField()
 #
 #
 # class TypeFields(models.Model):
@@ -34,9 +40,9 @@ from django.db.models import F
 #     field23 = models.URLField()  # Хранит строку имеет особую валидацию для URL
 
 
-class Person(models.Model):  # Создание класса Person который является моделью
-    name = models.CharField(max_length=20)  # Создание поля модели типа данных стринг
-    age = models.PositiveSmallIntegerField()  # Создание поля модели типа данных инт
+# class Person(models.Model):  # Создание класса Person который является моделью
+#     name = models.CharField(max_length=20)  # Создание поля модели типа данных стринг
+#     age = models.PositiveSmallIntegerField()  # Создание поля модели типа данных инт
 
 # create
 # object1 = Person.objects.create(name='Artem', age=23)  # Создание объекта класса и занесение его в DB
@@ -99,3 +105,39 @@ class Person(models.Model):  # Создание класса Person которы
 
 
 # Person.objects.filter(id=7).update(age = F('age') + 12)  # Фильтрует по id 7 и достаем значение age и увеличеваем его на 12
+
+
+# user1 = User.objects.create(name='Ivan', surname='Ivanow', age=15)
+# user2 = User(name='Serhii', surname='Petrow', age=22)
+# user2.save()
+# user3 = User.objects.get(name='Ivan')
+# print(user3.age)
+# user4, created = User.objects.get_or_create(name='Cristiano', surname='Petrow', age=37)
+# print(user4)
+# print(created)
+# user5 = User.objects.all()
+# print(user5)
+# user6 = User.objects.filter(surname='Petrow')
+# print(user6)
+# user7 = User.objects.in_bulk()
+# print(user7)
+# for id in user7:
+#     print(user7[id].name)
+#     print(user7[id].surname)
+#     print(user7[id].age)
+# User.objects.filter(id=3).update(surname='Shevchenko')
+
+
+# checked_dict = {
+#     'name': 'Ivan',
+#     'surname': 'Ivanow',
+#     'age': 15
+# }
+# user8, created = User.objects.update_or_create(id=7, defaults=checked_dict)
+# print(user8)
+# print(created)
+
+
+user9 = User.objects.get(id=2)
+user9.age = 21
+user9.save(update_fields=['age'])
