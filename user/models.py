@@ -139,5 +139,5 @@ class User(models.Model):
 
 
 user9 = User.objects.get(id=2)
-user9.age = 21
+user9.age = 212
 user9.save(update_fields=['age'])
