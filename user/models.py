@@ -8,10 +8,10 @@ from django.db.models import F
 #     age = models.IntegerField()
 
 
-class User(models.Model):
-    name = models.CharField(max_length=20)
-    surname = models.CharField(max_length=20)
-    age = models.PositiveSmallIntegerField()
+# class User(models.Model):
+#     name = models.CharField(max_length=20)
+#     surname = models.CharField(max_length=20)
+#     age = models.PositiveSmallIntegerField()
 #
 #
 # class TypeFields(models.Model):
@@ -138,6 +138,15 @@ class User(models.Model):
 # print(created)
 
 
-user9 = User.objects.get(id=2)
-user9.age = 212
-user9.save(update_fields=['age'])
+# user9 = User.objects.get(id=2)
+# user9.age = 212
+# user9.save(update_fields=['age'])
+
+
+class Person(models.Model):
+    name = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20)
+    age = models.PositiveSmallIntegerField()
+    phone = models.CharField(max_length=50)
+
+

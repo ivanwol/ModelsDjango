@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User page</title>
+</head>
+<body class="container">
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Введите свое имя: </label><br>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label>Введите свою фамилию: </label><br>
+            <input type="text" name="surname">
+        </p>
+        <p>
+            <label>Введите свой возраст: </label><br>
+            <input type="number" name="age">
+        </p>
+        <p>
+            <label>Введите свой номер телефона: </label><br>
+            <input type="text" name="phone">
+        </p>
+        <input type="submit" value="Сохранить">
+    </form>
+    {% if people.count > 0 %}
+    <h2>Список пользователей: </h2>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Возраст</th>
+            <th>Номер телефона</th>
+        </tr>
+        {% for person in people %}
+        <tr>
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.surname }}</td>
+            <td>{{ person.age }}</td>
+            <td>{{ person.phone }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+
+</html>
