@@ -42,6 +42,9 @@
             <td>{{ person.surname }}</td>
             <td>{{ person.age }}</td>
             <td>{{ person.phone }}</td>
+            <td>
+                <a href="edit/{{ person.id }}">Изменить</a> | <a href="delete/{{ person.id }}">Удалить</a>
+            </td>
         </tr>
         {% endfor %}
     </table>
